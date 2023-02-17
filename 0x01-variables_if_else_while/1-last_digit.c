@@ -4,9 +4,11 @@
 
 /**
  * main - Entry point
+ *
  * This program will assign a random number to the variable n each time
- * it is executed. It determines whether the number stored in the variable
- * n is even or odd, and print the result to the console.
+ * it is executed. It will then print the last digit of n along with a message
+ * indicating whether it is greater than 5, less than 6 and not 0, or 0.
+ *
  * Return: Always 0 (Success)
  */
 int main(void)
@@ -15,16 +17,24 @@ int main(void)
 
     srand(time(0));
     n = rand() - RAND_MAX / 2;
-    
-    if (n % 2 == 0)
+    int last_digit = n % 10;
+    char *message;
+
+    if (last_digit > 5)
     {
-        printf("%d is even\n", n);
+        message = "and is greater than 5";
+    }
+    else if (last_digit == 0)
+    {
+        message = "and is 0";
     }
     else
     {
-        printf("%d is odd\n", n);
+        message = "and is less than 6 and not 0";
     }
-    
+
+    printf("Last digit of %d is %d %s\n", n, last_digit, message);
+
     return (0);
 }
 
