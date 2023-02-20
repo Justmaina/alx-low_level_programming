@@ -13,28 +13,24 @@
  */
 int main(void)
 {
-    int n;
+	int n;
+	int a;
 
-    srand(time(0));
-    n = rand() - RAND_MAX / 2;
-    int last_digit = n % 10;
-    char *message;
+	srand(time(0));
+	n = rand() - RAND_MAX / 2;
+	a = n % 10;
 
-    if (last_digit > 5)
-    {
-        message = "and is greater than 5";
-    }
-    else if (last_digit == 0)
-    {
-        message = "and is 0";
-    }
-    else
-    {
-        message = "and is less than 6 and not 0";
-    }
-
-    printf("Last digit of %d is %d %s\n", n, last_digit, message);
-
-    return (0);
+	if (a > 5)
+	{
+		printf("Last digit of %d id %d and is greater than 5\n", n, a);
+	}
+	else if (a == 0)
+	{
+		printf("Last digit of %d is %d and is 0\n", n, a);
+	}
+	else
+	{
+		printf("Last digit of %d id %d and is less than 6 and not 0\n", n, a);
+	}
+	return (0);
 }
-
