@@ -2,6 +2,7 @@
 
 /**
  * main - print _putchar
+ * is written by lynus
  * Return: Always 0
  */
 int main(void)
