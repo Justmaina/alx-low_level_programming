@@ -15,42 +15,42 @@ size_t print_listint_safe(const listint_t *head);
  */
 size_t looped_listint_len(const listint_t *head)
 {
-    const listint_t *up, *down;
-    size_t nodes = 1;
+	const listint_t *up, *down;
+	size_t nodes = 1;
 
-    if (head == NULL || head->next == NULL)
-        return (0);
+	if (head == NULL || head->next == NULL)
+		return (0);
 
-    down = head->next;
-    up = (head->next)->next;
+	down = head->next;
+	up = (head->next)->next;
 
-    while (up)
-    {
-        if (down == up)
-        {
-            down = head;
-            while (down != up)
-            {
-                nodes++;
-                down = down->next;
-                up = up->next;
-            }
+	while (up)
+	{
+		if (down == up)
+		{
+			down = head;
+			while (down != up)
+			{
+				nodes++;
+				down = down->next;
+				up = up->next;
+			}
 
-            down = down->next;
-            while (down != up)
-            {
-                nodes++;
-                down = down->next;
-            }
+			down = down->next;
+			while (down != up)
+			{
+				nodes++;
+				down = down->next;
+			}
 
-            return (nodes);
-        }
+			return (nodes);
+		}
 
-        down = down->next;
-        up = (up->next)->next;
-    }
+		down = down->next;
+		up = (up->next)->next;
+	}
 
-    return (0);
+	return (0);
 }
 
 /**
@@ -61,29 +61,29 @@ size_t looped_listint_len(const listint_t *head)
  */
 size_t print_listint_safe(const listint_t *head)
 {
-    size_t nodes, index = 0;
+	size_t nodes, index = 0;
 
-    nodes = looped_listint_len(head);
+	nodes = looped_listint_len(head);
 
-    if (nodes == 0)
-    {
-        for (; head != NULL; nodes++)
-        {
-            printf("[%p] %d\n", (void *)head, head->n);
-            head = head->next;
-        }
-    }
+	if (nodes == 0)
+	{
+		for (; head != NULL; nodes++)
+		{
+			printf("[%p] %d\n", (void *)head, head->n);
+			head = head->next;
+		}
+	}
 
-    else
-    {
-        for (index = 0; index < nodes; index++)
-        {
-            printf("[%p] %d\n", (void *)head, head->n);
-            head = head->next;
-        }
+	else
+	{
+		for (index = 0; index < nodes; index++)
+		{
+			printf("[%p] %d\n", (void *)head, head->n);
+			head = head->next;
+		}
 
-        printf("-> [%p] %d\n", (void *)head, head->n);
-    }
+		printf("-> [%p] %d\n", (void *)head, head->n);
+	}
 
-    return (nodes);
+	return (nodes);
 }
